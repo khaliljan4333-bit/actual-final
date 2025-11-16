@@ -124,41 +124,17 @@ li {
     margin: 0 0.4em;
   }
 }
-/* === Hero Banner === */
+/* === Hero Banner (Fixed) === */
 .hero-banner {
   height: 60vh;
-  background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-              url('https://upload.wikimedia.org/wikipedia/commons/4/40/Cristiano_Ronaldo_Euro_2016.jpg') left center / cover no-repeat,
-              url('https://upload.wikimedia.org/wikipedia/commons/4/43/Lionel_Messi_2022.jpg') right center / cover no-repeat;
-  background-size: 50% 100%, 50% 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  padding: 2em;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("https://upload.wikimedia.org/wikipedia/commons/4/40/Cristiano_Ronaldo_Euro_2016.jpg") left center/50% 100% no-repeat,
+    url("https://upload.wikimedia.org/wikipedia/commons/4/43/Lionel_Messi_2022.jpg") right center/50% 100% no-repeat;
+  background-color: black;
 }
-
-.hero-banner .hero-content {
-  max-width: 700px;
-}
-
-.hero-banner h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5em;
-}
-
-.hero-banner .sub {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 1.2em;
-}
-
-.pillars {
-  margin-top: 2em;
-}
-
-.checklist li {
-  margin-bottom: 0.8em;
-}
-
