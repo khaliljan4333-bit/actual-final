@@ -125,16 +125,98 @@ li {
   }
 }
 /* === Hero Banner (Fixed) === */
+/* ================= HERO BANNER (UPGRADED) ================= */
+
 .hero-banner {
-  height: 60vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
   color: white;
-  background:
-    linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url("https://upload.wikimedia.org/wikipedia/commons/4/40/Cristiano_Ronaldo_Euro_2016.jpg") left center/50% 100% no-repeat,
-    url("https://upload.wikimedia.org/wikipedia/commons/4/43/Lionel_Messi_2022.jpg") right center/50% 100% no-repeat;
-  background-color: black;
+  background: url("assets/banner.jpg") center/cover no-repeat;
+  animation: bgZoom 18s ease-in-out infinite;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.25)
+  );
+}
+
+/* === TEXT + BUTTON FADE IN === */
+.hero-content {
+  position: relative;
+  max-width: 725px;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp 1.4s ease forwards;
+}
+
+/* BUTTON 🔥 GLOW HOVER */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.6rem;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.8);
+  margin: 0 .45rem;
+  text-decoration: none;
+  color: white;
+  transition: 0.25s;
+  font-weight: 600;
+  backdrop-filter: blur(2px);
+}
+
+.btn.primary {
+  background: white;
+  color: black;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(255,255,255,0.8);
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bgZoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ---------- MOBILE ADJUSTMENTS ---------- */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .btn {
+    display: block;
+    margin: 0.5rem auto;
+    width: 80%;
+  }
 }
