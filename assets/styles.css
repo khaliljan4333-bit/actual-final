@@ -137,86 +137,9 @@ li {
   position: relative;
   overflow: hidden;
   color: white;
-  background: url("assets/banner.jpg") center/cover no-repeat;
+  background-image: url("assets/banner.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   animation: bgZoom 18s ease-in-out infinite;
-}
-
-.hero-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.65),
-      rgba(0,0,0,0.25)
-  );
-}
-
-/* === TEXT + BUTTON FADE IN === */
-.hero-content {
-  position: relative;
-  max-width: 725px;
-  z-index: 2;
-  opacity: 0;
-  animation: fadeUp 1.4s ease forwards;
-}
-
-/* BUTTON 🔥 GLOW HOVER */
-.btn {
-  display: inline-block;
-  padding: 0.9rem 1.6rem;
-  border-radius: 8px;
-  border: 2px solid rgba(255,255,255,0.8);
-  margin: 0 .45rem;
-  text-decoration: none;
-  color: white;
-  transition: 0.25s;
-  font-weight: 600;
-  backdrop-filter: blur(2px);
-}
-
-.btn.primary {
-  background: white;
-  color: black;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(255,255,255,0.8);
-}
-
-/* ---------- ANIMATIONS ---------- */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bgZoom {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.12);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* ---------- MOBILE ADJUSTMENTS ---------- */
-@media (max-width: 600px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .btn {
-    display: block;
-    margin: 0.5rem auto;
-    width: 80%;
-  }
 }
