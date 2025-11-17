@@ -1,6 +1,5 @@
-<!doctype html>
+`<!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -23,13 +22,138 @@
 
 <main>
   <h1>Head-to-Head Statistics</h1>
-  <!-- Existing content (animated counters, tables, per-90 stats) -->
+
+  <!-- ====== LIVE CAREER COUNTERS ====== -->
+  <section>
+    <h2>Career Totals (Live)</h2>
+
+    <div class="counter-grid">
+
+      <div class="counter-box">
+        <span data-count="891" class="count-num">0</span>
+        <p>Career Goals – Ronaldo</p>
+      </div>
+
+      <div class="counter-box">
+        <span data-count="821" class="count-num">0</span>
+        <p>Career Goals – Messi</p>
+      </div>
+
+      <div class="counter-box">
+        <span data-count="140" class="count-num">0</span>
+        <p>UCL Goals – Ronaldo</p>
+      </div>
+
+      <div class="counter-box">
+        <span data-count="129" class="count-num">0</span>
+        <p>UCL Goals – Messi</p>
+      </div>
+
+      <div class="counter-box">
+        <span data-count="128" class="count-num">0</span>
+        <p>International Goals – Ronaldo</p>
+      </div>
+
+      <div class="counter-box">
+        <span data-count="106" class="count-num">0</span>
+        <p>International Goals – Messi</p>
+      </div>
+
+    </div>
+    <p><em>Stats updated: 2025</em></p>
+  </section>
+
+  <!-- ====== CHAMPIONS LEAGUE ====== -->
+  <section>
+    <h2>Champions League Breakdown</h2>
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Goals</td><td>140</td><td>129</td></tr>
+        <tr><td>Matches</td><td>183</td><td>163</td></tr>
+        <tr><td>Final Goals</td><td>4</td><td>2</td></tr>
+        <tr><td>Golden Boots</td><td>7</td><td>6</td></tr>
+        <tr><td>Trophies</td><td>5</td><td>4</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ====== LA LIGA ====== -->
+  <section>
+    <h2>La Liga Output</h2>
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Goals</td><td>311</td><td>474</td></tr>
+        <tr><td>Matches</td><td>292</td><td>520</td></tr>
+        <tr><td>Goals per Match</td><td>1.06</td><td>0.91</td></tr>
+        <tr><td>Hat-Tricks</td><td>34</td><td>36</td></tr>
+        <tr><td>Pichichi Awards</td><td>3</td><td>8</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ====== INTERNATIONAL ====== -->
+  <section>
+    <h2>International Career</h2>
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Goals</td><td>128</td><td>106</td></tr>
+        <tr><td>Caps</td><td>206</td><td>180</td></tr>
+        <tr><td>Major Trophies</td><td>2</td><td>2</td></tr>
+        <tr><td>Golden Ball (WC)</td><td>0</td><td>1</td></tr>
+        <tr><td>Continental Golden Boot</td><td>1</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ====== ADVANCED STATS ====== -->
+  <section>
+    <h2>Advanced Per-90 Metrics (All Competitions)</h2>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Ronaldo</th><th>Messi</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Goals per 90</td><td>0.72</td><td>0.81</td></tr>
+        <tr><td>Assists per 90</td><td>0.21</td><td>0.35</td></tr>
+        <tr><td>Goal Involvements</td><td>0.93</td><td>1.16</td></tr>
+        <tr><td>Shots per 90</td><td>6.1</td><td>4.4</td></tr>
+      </tbody>
+    </table>
+  </section>
+
 </main>
 
 <footer class="site-footer">
-  <p>&copy; <span id="year"></span> Outcomes-first analysis. Updated periodically.</p>
+  <p>&copy; <span id="year"></span> Outcomes-first analysis.</p>
 </footer>
 
 <script src="assets/app.js" defer></script>
+
+<!-- LIVE COUNTER SCRIPT -->
+<script>
+document.querySelectorAll(".count-num").forEach(el => {
+  let target = +el.dataset.count;
+  let count = 0;
+  let step = target / 100;
+  let timer = setInterval(() => {
+    count += step;
+    el.textContent = Math.floor(count);
+    if (count >= target) {
+      el.textContent = target;
+      clearInterval(timer);
+    }
+  }, 20);
+});
+</script>
+
 </body>
 </html>
