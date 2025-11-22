@@ -280,3 +280,24 @@ details[open] summary {
   opacity: 1;
   transform: scale(1);
 }
+/* ======================= PAGE BACKGROUND COLORS ======================= */
+
+/* Case Page Background */
+body.case-page {
+  background: #f0faf5; /* soft green tint */
+}
+
+/* Stats Page Background */
+body.stats-page {
+  background: #f5f8ff; /* soft blue tint */
+}
+
+/* FAQ Page Background */
+body.faq-page {
+  background: #fffaf4; /* warm cream */
+}
+
+/* Sources Page Background */
+body.sources-page {
+  background: #f4f7fa; /* neutral gray-blue */
+}
