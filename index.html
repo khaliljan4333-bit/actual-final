@@ -1,136 +1,104 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Why Ronaldo is better than Messi</title>
+  <title>Ronaldo > Messi</title>
+
   <link rel="stylesheet" href="assets/styles.css" />
 
   <style>
-    /* =============== SOFT BLEND SPLIT HERO =============== */
-
-    .hero-blend {
+    /* HERO BACKGROUND SPLIT WITH REAL PLAYER IMAGES */
+    .hero {
       position: relative;
-      height: 100vh;
+      width: 100%;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       overflow: hidden;
+      color: white;
+      text-align: center;
+      padding-top: 2rem;
     }
 
-    /* LEFT IMAGE — RONALDO */
+    .hero-side {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45);
+    }
+
     .hero-left {
-      position: absolute;
-      inset: 0;
-      background-image: url("/mnt/data/soccer-pictures-vnl5lv3bkbrkh30d.jpg");
-      background-size: cover;
-      background-position: center left;
-      z-index: 1;
-      opacity: 1;
-      animation: zoomHero 18s ease-in-out infinite alternate;
+      left: 0;
+      background-image: url("assets/img/ronaldo.jpg");
     }
 
-    /* RIGHT IMAGE — MESSI */
     .hero-right {
-      position: absolute;
-      inset: 0;
-      background-image: url("/mnt/data/lionel-messi-kicking-a-ball-im8dgqsp0qx38lgv.jpg");
-      background-size: cover;
-      background-position: center right;
-      z-index: 2;
-      opacity: 0.65; /* soften blend */
-      mix-blend-mode: screen; /* soft fade effect */
-      animation: zoomHero 18s ease-in-out infinite alternate;
+      right: 0;
+      background-image: url("assets/img/messi.jpg");
     }
 
-    @keyframes zoomHero {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.08); }
-    }
-
-    /* DARK OVERLAY */
-    .hero-overlay {
+    /* PLAYER NAME LABELS */
+    .player-label {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.75)
-      );
-      z-index: 3;
-    }
-
-    /* LABELS */
-    .hero-label {
-      position: absolute;
-      top: 14%;
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      text-transform: uppercase;
-      z-index: 4;
+      top: 110px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      padding: 10px 25px;
+      border-radius: 50px;
       backdrop-filter: blur(4px);
       color: white;
     }
 
-    .label-left {
-      left: 8%;
-      border: 2px solid #04724d;
+    .player-left { left: 70px; border: 2px solid #04724d; }
+    .player-right { right: 70px; border: 2px solid #c1121f; }
+
+    /* FAN MODE TOGGLE */
+    .fan-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      border-radius: 30px;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+      color: #222;
+      transition: 0.3s;
     }
 
-    .label-right {
-      right: 8%;
-      border: 2px solid #c1121f;
+    .fan-toggle:hover {
+      background: #ddd;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 5;
-      max-width: 720px;
-      padding: 1rem;
-      color: white;
-    }
+    /* ANIMATION CLASSES */
+    .scroll-fade { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+    .scroll-fade.visible { opacity: 1; transform: translateY(0); }
 
-    .hero-content h1 {
-      font-size: 2.8rem;
+    .hero-title {
+      font-size: 3rem;
       font-weight: 800;
-      margin-bottom: 0.6rem;
-      text-shadow: 0 0 15px rgba(0,0,0,0.9);
+      text-shadow: 0px 0px 12px rgba(0,0,0,0.6);
     }
 
-    .hero-content h1 span {
-      background: linear-gradient(90deg, #fff3b2, #ffffff);
-      -webkit-background-clip: text;
-      color: transparent;
+    .hero-sub {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 1.2rem;
+      text-shadow: 0px 0px 10px rgba(0,0,0,0.6);
     }
 
-    .hero-content p {
-      font-size: 1.1rem;
-      opacity: 0.92;
-      margin-bottom: 1.4rem;
-    }
-
-    /* Scroll Fade */
-    .scroll-fade {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: 0.7s ease;
-    }
-
-    .scroll-fade.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Intro section */
-    .intro-section {
-      padding: 2.2rem 1.5rem 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
+    .hero-buttons {
+      margin-top: 25px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
     }
   </style>
 </head>
@@ -138,7 +106,7 @@
 <body>
 
 <header class="site-header">
-  <a class="logo" href="index.html">Ronaldo &gt; Messi</a>
+  <a class="logo" href="index.html">Ronaldo > Messi</a>
   <nav class="site-nav">
     <a href="index.html" aria-current="page">Home</a>
     <a href="case.html">The Case</a>
@@ -148,53 +116,59 @@
   </nav>
 </header>
 
-<!-- ===== HERO SECTION ===== -->
-<section class="hero-blend">
+<!-- ===== HERO SECTION WITH REAL IMAGES ===== -->
+<section class="hero">
+  
+  <!-- REAL PLAYER BACKGROUNDS -->
+  <div class="hero-side hero-left"></div>
+  <div class="hero-side hero-right"></div>
 
-  <div class="hero-left"></div>
-  <div class="hero-right"></div>
-  <div class="hero-overlay"></div>
+  <!-- PLAYER LABELS -->
+  <div class="player-label player-left">RONALDO</div>
+  <div class="player-label player-right">MESSI</div>
 
-  <span class="hero-label label-left">Ronaldo</span>
-  <span class="hero-label label-right">Messi</span>
+  <!-- FAN MODE BUTTON -->
+  <button id="fanModeBtn" class="fan-toggle">Fun Mode</button>
 
-  <div class="hero-content scroll-fade">
-    <h1><span>Why Ronaldo</span> is Better than Messi</h1>
-    <p>A comparison based on outcomes, longevity, adaptability, and big-game moments.</p>
+  <div class="scroll-fade">
+    <h1 class="hero-title">Why Ronaldo is Better<br>than Messi</h1>
+    <p class="hero-sub">
+      A comparison based on outcomes, longevity, adaptability, and big-game moments.
+    </p>
 
-    <div class="cta">
-      <a class="btn primary" href="case.html">Read the Case</a>
-      <a class="btn" href="stats.html">Compare Stats</a>
+    <div class="hero-buttons">
+      <a href="case.html" class="button primary">Read the Case</a>
+      <a href="stats.html" class="button secondary">Compare Stats</a>
     </div>
   </div>
-
 </section>
-
-<!-- ===== INTRO SECTION ===== -->
-<section class="intro-section scroll-fade">
-  <h2>What This Site Measures</h2>
-  <p>
-    We compare both legends using outcome-based metrics: Champions League dominance,
-    adaptability across leagues, and long-term clutch performance — not just playstyle.
-  </p>
-</section>
-
-<footer class="site-footer">
-  <p>&copy; <span id="year"></span> Outcomes-first analysis.</p>
-</footer>
 
 <script>
-  const revealEls = document.querySelectorAll('.scroll-fade');
-  function revealOnScroll() {
+/* Scroll Animations */
+function revealOnScroll() {
+  document.querySelectorAll('.scroll-fade').forEach(el => {
     const trigger = window.innerHeight * 0.85;
-    revealEls.forEach(el => {
-      if (el.getBoundingClientRect().top < trigger) {
-        el.classList.add('visible');
-      }
-    });
+    if (el.getBoundingClientRect().top < trigger) {
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+/* FUN MODE */
+const btn = document.getElementById("fanModeBtn");
+let fan = false;
+
+btn.addEventListener("click", () => {
+  fan = !fan;
+  if (fan) {
+    btn.textContent = "Fan Mode: ON";
+    alert("🔥 Fan Mode Activated: Ronaldo clear 🐐");
+  } else {
+    btn.textContent = "Fun Mode";
   }
-  window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', revealOnScroll);
+});
 </script>
 
 <script src="assets/app.js" defer></script>
