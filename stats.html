@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/styles.css" />
 
   <style>
-    /* MINI BAR GRAPH STYLES */
+    /* MINI BAR GRAPH STYLES (top mini charts) */
     .mini-graph {
       margin: 0.5rem 0 1rem;
     }
@@ -28,7 +28,7 @@
     }
 
     .ronaldo-bar { background: #04724d; } /* Green */
-    .messi-bar { background: #c1121f; } /* Red */
+    .messi-bar { background: #c1121f; }   /* Red */
 
     .mini-label {
       font-size: 0.85rem;
@@ -55,6 +55,123 @@
 
     .legend-box.ronaldo { background: #04724d; }
     .legend-box.messi { background: #c1121f; }
+
+    /* STATS SECTIONS AS CARDS */
+    .stats-card {
+      background: #fff;
+      margin: 1.6rem 0;
+      padding: 1.2rem;
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    }
+
+    .stats-card h2 {
+      margin-top: 0;
+    }
+
+    /* TABLE STYLES */
+    .stat-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .stat-table thead {
+      background: #f2f2f2;
+    }
+
+    .stat-table th,
+    .stat-table td {
+      padding: 0.55rem 0.45rem;
+      text-align: left;
+    }
+
+    .stat-table th {
+      font-weight: 700;
+    }
+
+    .stat-table tbody tr {
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .stat-table tbody tr:hover {
+      background: rgba(0,0,0,0.03);
+      transform: translateY(-1px);
+    }
+
+    /* LEAD HIGHLIGHT ROWS */
+    .row-ronaldo-leads {
+      background: rgba(4, 114, 77, 0.06);
+    }
+
+    .row-messi-leads {
+      background: rgba(193, 18, 31, 0.06);
+    }
+
+    .row-even {
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    /* INLINE STAT BARS INSIDE TABLE CELLS */
+    .stat-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .stat-bar-wrap {
+      flex: 1;
+      background: #e6e6e6;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .stat-bar {
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .stat-bar.ronaldo {
+      background: #04724d;
+    }
+
+    .stat-bar.messi {
+      background: #c1121f;
+    }
+
+    .stat-value {
+      min-width: 2.5rem;
+      text-align: right;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .lead-tag {
+      display: inline-block;
+      margin-left: 0.35rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .lead-tag.ronaldo {
+      background: rgba(4,114,77,0.12);
+      color: #02402b;
+    }
+
+    .lead-tag.messi {
+      background: rgba(193,18,31,0.12);
+      color: #5f0610;
+    }
+
+    .lead-tag.even {
+      background: rgba(212,175,55,0.18);
+      color: #6a520f;
+    }
   </style>
 </head>
 
@@ -75,7 +192,7 @@
   <h1 class="scroll-fade">Head-to-Head Statistics</h1>
 
   <!-- ====== LIVE CAREER COUNTERS ====== -->
-  <section class="scroll-up">
+  <section class="scroll-up stats-card">
     <h2>Career Totals (Live)</h2>
 
     <div class="counter-grid">
@@ -115,7 +232,7 @@
   </section>
 
   <!-- ====== MINI VISUAL GRAPH + LEGEND ====== -->
-  <section class="scroll-up">
+  <section class="scroll-up stats-card">
     <h2>Goals Comparison (Mini Chart)</h2>
 
     <!-- LEGEND -->
@@ -144,65 +261,347 @@
   </section>
 
   <!-- ====== GOALS IMAGE ====== -->
-  <section class="scroll-up">
+  <section class="scroll-up stats-card">
     <h2>Visual Comparison</h2>
     <img src="assets/goals-comparison.png" alt="Goals Comparison Chart" class="stats-chart">
     <p>This chart visualizes Ronaldo's high-value scoring dominance across key competitions.</p>
   </section>
 
   <!-- ====== CHAMPIONS LEAGUE ====== -->
-  <section class="scroll-up">
+  <section class="scroll-up stats-card">
     <h2>Champions League Breakdown</h2>
-    <table>
+    <table class="stat-table">
       <thead>
         <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
       <tbody>
-        <tr><td>Goals</td><td>140</td><td>129</td></tr>
-        <tr><td>Matches</td><td>183</td><td>163</td></tr>
-        <tr><td>Final Goals</td><td>4</td><td>2</td></tr>
-        <tr><td>Golden Boots</td><td>7</td><td>6</td></tr>
-        <tr><td>Trophies</td><td>5</td><td>4</td></tr>
+        <tr class="row-ronaldo-leads">
+          <td>Goals <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">140</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 92%"></div>
+              </div>
+              <span class="stat-value">129</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Matches <span class="lead-tag ronaldo">More appearances</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">183</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 89%"></div>
+              </div>
+              <span class="stat-value">163</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Final Goals <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">4</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 50%"></div>
+              </div>
+              <span class="stat-value">2</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Golden Boots <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">7</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 86%"></div>
+              </div>
+              <span class="stat-value">6</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Trophies <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">5</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 80%"></div>
+              </div>
+              <span class="stat-value">4</span>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </section>
 
   <!-- ====== LA LIGA ====== -->
-  <section class="scroll-up">
+  <section class="scroll-up stats-card">
     <h2>La Liga Output</h2>
-    <table>
+    <table class="stat-table">
       <thead>
         <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
       <tbody>
-        <tr><td>Goals</td><td>311</td><td>474</td></tr>
-        <tr><td>Matches</td><td>292</td><td>520</td></tr>
-        <tr><td>Goals per Match</td><td>1.06</td><td>0.91</td></tr>
-        <tr><td>Hat-Tricks</td><td>34</td><td>36</td></tr>
-        <tr><td>Pichichi Awards</td><td>3</td><td>8</td></tr>
+        <tr class="row-messi-leads">
+          <td>Goals <span class="lead-tag messi">Messi leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 66%"></div>
+              </div>
+              <span class="stat-value">311</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">474</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-messi-leads">
+          <td>Matches <span class="lead-tag messi">More appearances</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 56%"></div>
+              </div>
+              <span class="stat-value">292</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">520</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Goals per Match <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">1.06</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 86%"></div>
+              </div>
+              <span class="stat-value">0.91</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-messi-leads">
+          <td>Hat-Tricks <span class="lead-tag messi">Slight edge</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 94%"></div>
+              </div>
+              <span class="stat-value">34</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">36</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-messi-leads">
+          <td>Pichichi Awards <span class="lead-tag messi">Messi leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 38%"></div>
+              </div>
+              <span class="stat-value">3</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">8</span>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </section>
 
   <!-- ====== INTERNATIONAL ====== -->
-  <section class="scroll-up">
+  <section class="scroll-up stats-card">
     <h2>International Career</h2>
-    <table>
+    <table class="stat-table">
       <thead>
         <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
       <tbody>
-        <tr><td>Goals</td><td>128</td><td>106</td></tr>
-        <tr><td>Caps</td><td>206</td><td>180</td></tr>
-        <tr><td>Major Trophies</td><td>2</td><td>2</td></tr>
-        <tr><td>Golden Ball (WC)</td><td>0</td><td>1</td></tr>
-        <tr><td>Continental Golden Boot</td><td>1</td><td>0</td></tr>
+        <tr class="row-ronaldo-leads">
+          <td>Goals <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">128</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 83%"></div>
+              </div>
+              <span class="stat-value">106</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Caps <span class="lead-tag ronaldo">More appearances</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">206</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 87%"></div>
+              </div>
+              <span class="stat-value">180</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-even">
+          <td>Major Trophies <span class="lead-tag even">Even</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">2</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">2</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-messi-leads">
+          <td>Golden Ball (WC) <span class="lead-tag messi">Messi leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 10%"></div>
+              </div>
+              <span class="stat-value">0</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">1</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Continental Golden Boot <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">1</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 10%"></div>
+              </div>
+              <span class="stat-value">0</span>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </section>
 
   <!-- ====== ADVANCED STATS ====== -->
-  <section class="scroll-up">
+  <section class="scroll-up stats-card">
     <h2>Advanced Per-90 Metrics</h2>
 
     <div class="mini-graph">
@@ -211,15 +610,90 @@
       <div class="bar-wrap"><div class="bar messi-bar" style="width: 100%"></div></div>
     </div>
 
-    <table>
+    <table class="stat-table">
       <thead>
         <tr><th>Metric</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
       <tbody>
-        <tr><td>Goals per 90</td><td>0.72</td><td>0.81</td></tr>
-        <tr><td>Assists per 90</td><td>0.21</td><td>0.35</td></tr>
-        <tr><td>Goal Involvements</td><td>0.93</td><td>1.16</td></tr>
-        <tr><td>Shots per 90</td><td>6.1</td><td>4.4</td></tr>
+        <tr class="row-messi-leads">
+          <td>Goals per 90 <span class="lead-tag messi">Messi leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 89%"></div>
+              </div>
+              <span class="stat-value">0.72</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">0.81</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-messi-leads">
+          <td>Assists per 90 <span class="lead-tag messi">Messi leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 60%"></div>
+              </div>
+              <span class="stat-value">0.21</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">0.35</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-messi-leads">
+          <td>Goal Involvements <span class="lead-tag messi">Messi leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 80%"></div>
+              </div>
+              <span class="stat-value">0.93</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">1.16</span>
+            </div>
+          </td>
+        </tr>
+
+        <tr class="row-ronaldo-leads">
+          <td>Shots per 90 <span class="lead-tag ronaldo">Ronaldo leads</span></td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar ronaldo" style="width: 100%"></div>
+              </div>
+              <span class="stat-value">6.1</span>
+            </div>
+          </td>
+          <td>
+            <div class="stat-cell">
+              <div class="stat-bar-wrap">
+                <div class="stat-bar messi" style="width: 72%"></div>
+              </div>
+              <span class="stat-value">4.4</span>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </section>
