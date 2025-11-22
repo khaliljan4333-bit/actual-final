@@ -6,11 +6,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stats – Ronaldo vs Messi</title>
   <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* MINI BAR GRAPH STYLES */
+    .mini-graph {
+      margin: 0.5rem 0 1rem;
+    }
+
+    .bar-wrap {
+      background: #e6e6e6;
+      height: 10px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 0.3rem;
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 20px;
+      transition: width 1.2s ease;
+    }
+
+    .ronaldo-bar { background: #04724d; } /* Green */
+    .messi-bar { background: #c1121f; } /* Red */
+
+    .mini-label {
+      font-size: 0.85rem;
+      color: #444;
+    }
+  </style>
 </head>
 
-<body class="stats-page">
+<body>
 
-<header class="site-header scroll-reveal">
+<header class="site-header">
   <a class="logo" href="index.html">Ronaldo &gt; Messi</a>
   <nav class="site-nav">
     <a href="index.html">Home</a>
@@ -21,68 +49,95 @@
   </nav>
 </header>
 
-<main class="faq-container">
-
-  <h1 class="scroll-reveal">Head-to-Head Statistics</h1>
+<main>
+  <h1 class="scroll-fade">Head-to-Head Statistics</h1>
 
   <!-- ====== LIVE CAREER COUNTERS ====== -->
-  <section class="scroll-reveal">
-    <h2 class="scroll-left">Career Totals (Live)</h2>
+  <section class="scroll-up">
+    <h2>Career Totals (Live)</h2>
 
-    <div class="counter-grid scroll-zoom">
+    <div class="counter-grid">
 
-      <div class="counter-box scroll-reveal">
+      <div class="counter-box">
         <span data-count="891" class="count-num">0</span>
         <p>Career Goals – Ronaldo</p>
       </div>
 
-      <div class="counter-box scroll-reveal">
+      <div class="counter-box">
         <span data-count="821" class="count-num">0</span>
         <p>Career Goals – Messi</p>
       </div>
 
-      <div class="counter-box scroll-reveal">
+      <div class="counter-box">
         <span data-count="140" class="count-num">0</span>
         <p>UCL Goals – Ronaldo</p>
       </div>
 
-      <div class="counter-box scroll-reveal">
+      <div class="counter-box">
         <span data-count="129" class="count-num">0</span>
         <p>UCL Goals – Messi</p>
       </div>
 
-      <div class="counter-box scroll-reveal">
+      <div class="counter-box">
         <span data-count="128" class="count-num">0</span>
         <p>International Goals – Ronaldo</p>
       </div>
 
-      <div class="counter-box scroll-reveal">
+      <div class="counter-box">
         <span data-count="106" class="count-num">0</span>
         <p>International Goals – Messi</p>
       </div>
 
     </div>
-
-    <p class="scroll-reveal"><em>Stats updated: 2025</em></p>
+    <p><em>Stats updated: 2025</em></p>
   </section>
 
-  <!-- ====== GOALS COMPARISON CHART ====== -->
-  <section class="scroll-reveal">
-    <h2 class="scroll-left">Visual Comparison</h2>
+  <!-- ====== MINI VISUAL GRAPH: GOALS ====== -->
+  <section class="scroll-up">
+    <h2>Goals Comparison (Mini Chart)</h2>
 
-    <img src="assets/goals-comparison.png"
-         alt="Goals Comparison Chart between Ronaldo and Messi"
-         class="stats-chart scroll-zoom">
+    <div class="mini-graph">
+      <p class="mini-label">Total Career Goals</p>
+      <div class="bar-wrap">
+        <div class="bar ronaldo-bar" style="width: 100%"></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar messi-bar" style="width: 92%"></div>
+      </div>
+    </div>
 
-    <p class="scroll-reveal">
-      This chart visualizes Ronaldo's high-value scoring dominance across key competitions.
-    </p>
+    <div class="mini-graph">
+      <p class="mini-label">UEFA Champions League Goals</p>
+      <div class="bar-wrap">
+        <div class="bar ronaldo-bar" style="width: 100%"></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar messi-bar" style="width: 92%"></div>
+      </div>
+    </div>
+
+    <div class="mini-graph">
+      <p class="mini-label">International Goals</p>
+      <div class="bar-wrap">
+        <div class="bar ronaldo-bar" style="width: 100%"></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar messi-bar" style="width: 83%"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GOALS COMPARISON IMAGE ====== -->
+  <section class="scroll-up">
+    <h2>Visual Comparison</h2>
+    <img src="assets/goals-comparison.png" alt="Goals Comparison Chart" class="stats-chart">
+    <p>This chart visualizes Ronaldo's high-value scoring dominance across key competitions.</p>
   </section>
 
   <!-- ====== CHAMPIONS LEAGUE ====== -->
-  <section class="scroll-reveal">
-    <h2 class="scroll-right">Champions League Breakdown</h2>
-    <table class="scroll-zoom">
+  <section class="scroll-up">
+    <h2>Champions League Breakdown</h2>
+    <table>
       <thead>
         <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
@@ -97,9 +152,9 @@
   </section>
 
   <!-- ====== LA LIGA ====== -->
-  <section class="scroll-reveal">
-    <h2 class="scroll-left">La Liga Output</h2>
-    <table class="scroll-zoom">
+  <section class="scroll-up">
+    <h2>La Liga Output</h2>
+    <table>
       <thead>
         <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
@@ -114,9 +169,9 @@
   </section>
 
   <!-- ====== INTERNATIONAL ====== -->
-  <section class="scroll-reveal">
-    <h2 class="scroll-right">International Career</h2>
-    <table class="scroll-zoom">
+  <section class="scroll-up">
+    <h2>International Career</h2>
+    <table>
       <thead>
         <tr><th>Category</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
@@ -131,9 +186,17 @@
   </section>
 
   <!-- ====== ADVANCED STATS ====== -->
-  <section class="scroll-reveal">
-    <h2 class="scroll-left">Advanced Per-90 Metrics (All Competitions)</h2>
-    <table class="scroll-zoom">
+  <section class="scroll-up">
+    <h2>Advanced Per-90 Metrics</h2>
+
+    <!-- MINI CHART -->
+    <div class="mini-graph">
+      <p class="mini-label">Goals per 90</p>
+      <div class="bar-wrap"><div class="bar ronaldo-bar" style="width: 88%"></div></div>
+      <div class="bar-wrap"><div class="bar messi-bar" style="width: 100%"></div></div>
+    </div>
+
+    <table>
       <thead>
         <tr><th>Metric</th><th>Ronaldo</th><th>Messi</th></tr>
       </thead>
@@ -148,12 +211,13 @@
 
 </main>
 
-<footer class="site-footer scroll-reveal">
+<footer class="site-footer">
   <p>&copy; <span id="year"></span> Outcomes-first analysis.</p>
 </footer>
 
 <script src="assets/app.js" defer></script>
 
+<!-- COUNTER SCRIPT -->
 <script>
 document.querySelectorAll(".count-num").forEach(el => {
   let target = +el.dataset.count;
