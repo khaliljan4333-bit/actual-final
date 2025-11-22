@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stats – Ronaldo vs Messi</title>
   <link rel="stylesheet" href="assets/styles.css" />
+
   <style>
     /* MINI BAR GRAPH STYLES */
     .mini-graph {
@@ -32,11 +33,32 @@
     .mini-label {
       font-size: 0.85rem;
       color: #444;
+      margin-bottom: .3rem;
     }
+
+    /* LEGEND */
+    .chart-legend {
+      display: flex;
+      gap: 2rem;
+      margin: 1rem 0 1.5rem;
+      padding-left: .2rem;
+      font-weight: 600;
+    }
+
+    .legend-box {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+
+    .legend-box.ronaldo { background: #04724d; }
+    .legend-box.messi { background: #c1121f; }
   </style>
 </head>
 
-<body>
+<body class="stats-page">
 
 <header class="site-header">
   <a class="logo" href="index.html">Ronaldo &gt; Messi</a>
@@ -92,42 +114,36 @@
     <p><em>Stats updated: 2025</em></p>
   </section>
 
-  <!-- ====== MINI VISUAL GRAPH: GOALS ====== -->
+  <!-- ====== MINI VISUAL GRAPH + LEGEND ====== -->
   <section class="scroll-up">
     <h2>Goals Comparison (Mini Chart)</h2>
 
+    <!-- LEGEND -->
+    <div class="chart-legend scroll-up">
+      <div><span class="legend-box ronaldo"></span> Ronaldo</div>
+      <div><span class="legend-box messi"></span> Messi</div>
+    </div>
+
     <div class="mini-graph">
       <p class="mini-label">Total Career Goals</p>
-      <div class="bar-wrap">
-        <div class="bar ronaldo-bar" style="width: 100%"></div>
-      </div>
-      <div class="bar-wrap">
-        <div class="bar messi-bar" style="width: 92%"></div>
-      </div>
+      <div class="bar-wrap"><div class="bar ronaldo-bar" style="width: 100%"></div></div>
+      <div class="bar-wrap"><div class="bar messi-bar" style="width: 92%"></div></div>
     </div>
 
     <div class="mini-graph">
       <p class="mini-label">UEFA Champions League Goals</p>
-      <div class="bar-wrap">
-        <div class="bar ronaldo-bar" style="width: 100%"></div>
-      </div>
-      <div class="bar-wrap">
-        <div class="bar messi-bar" style="width: 92%"></div>
-      </div>
+      <div class="bar-wrap"><div class="bar ronaldo-bar" style="width: 100%"></div></div>
+      <div class="bar-wrap"><div class="bar messi-bar" style="width: 92%"></div></div>
     </div>
 
     <div class="mini-graph">
       <p class="mini-label">International Goals</p>
-      <div class="bar-wrap">
-        <div class="bar ronaldo-bar" style="width: 100%"></div>
-      </div>
-      <div class="bar-wrap">
-        <div class="bar messi-bar" style="width: 83%"></div>
-      </div>
+      <div class="bar-wrap"><div class="bar ronaldo-bar" style="width: 100%"></div></div>
+      <div class="bar-wrap"><div class="bar messi-bar" style="width: 83%"></div></div>
     </div>
   </section>
 
-  <!-- ====== GOALS COMPARISON IMAGE ====== -->
+  <!-- ====== GOALS IMAGE ====== -->
   <section class="scroll-up">
     <h2>Visual Comparison</h2>
     <img src="assets/goals-comparison.png" alt="Goals Comparison Chart" class="stats-chart">
@@ -189,7 +205,6 @@
   <section class="scroll-up">
     <h2>Advanced Per-90 Metrics</h2>
 
-    <!-- MINI CHART -->
     <div class="mini-graph">
       <p class="mini-label">Goals per 90</p>
       <div class="bar-wrap"><div class="bar ronaldo-bar" style="width: 88%"></div></div>
